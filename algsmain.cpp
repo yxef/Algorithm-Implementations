@@ -33,7 +33,6 @@ int main(){
     generateRandomIntVector(vectorToGenerate, 10, 30);
 
     int choiceSelector = 0;
-    //std::cin.clear();
     while(choiceSelector != -1){
         std::cout << "Choose your algorithm:"<< std::endl;
         std::cout << "[1] Insertion Sort" << std::endl;
@@ -68,14 +67,15 @@ int main(){
         case 7:
             printVector(vectorToGenerate);
             std::cout << "You chose Quick Sort"<< std::endl;
-            quickSort(vectorToGenerate);
+            quickS::quickSort(vectorToGenerate);
             printVector(vectorToGenerate);
             break;
         case 69:
             std::cout << "Nice"<< std::endl;
         break;
         case -1:
-            std::cout << "googbye" << std::endl; 
+            std::cout << "googbye" << std::endl;
+            break;
         default:
             std::cout << "Not a valid choice"<<std::endl;
             if(std::cin.fail()){
