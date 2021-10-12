@@ -3,16 +3,23 @@
 #include <vector>
 #include <math.h>
 #include <time.h>
+#include "commonFunctions.h"
 
+/*
+QuickSort
+    Worst Case: n^2
+    Average Case: n log n
+
+Quick sort is defined by being in practical terms really fast and ON PLACE
+Quick sort uses a Divide and Conquer approach
+They key to this algorithm is the "partition" procedure which subdivides the array into 4 regions (can be empty)
+leftIndexWall[ - ]i[ - ]j[ - ]rightIndexWall
+This particular implementation starts by sampling the right most item as pivot (rightIndexWall)
+
+
+*/
 
 namespace quickS{
-// just a functions that swaps 2 elements of a vector using its indexes
-void swapVectorElements(std::vector<int> &vector, int index1, int index2){
-    int hold = vector[index1];
-    vector[index1] = vector[index2];
-    vector[index2] = hold;
-    return;
-}
 
 /* partition function
 #   input: array

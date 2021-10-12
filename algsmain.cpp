@@ -3,14 +3,8 @@
 #include <vector>
 #include <math.h>
 #include "Algorithms/quickSort.h"
+#include "Algorithms/commonFunctions.h"
 
-template <typename T>
-void printVector(std::vector<T> toPrint){
-    for(int i = 0; i < toPrint.size(); i++){
-        std::cout <<"["<< toPrint[i] << "]";
-    }
-    std::cout << std::endl;
-}
 
 void generateRandomIntVector(std::vector<int> &toRandomize, int desiredSize, int maxValueRange){
     if(toRandomize.size() == 0){
@@ -35,6 +29,7 @@ int main(){
     int choiceSelector = 0;
     while(choiceSelector != -1){
         std::cout << "Choose your algorithm:"<< std::endl;
+        std::cout << "[0] Scramble vector" << std::endl;
         std::cout << "[1] Insertion Sort" << std::endl;
         std::cout << "[2] Merge Sort" << std::endl;
         std::cout << "[3] Bubble Sort" << std::endl;
@@ -46,6 +41,12 @@ int main(){
         std::cin >> choiceSelector;
         switch (choiceSelector)
         {
+        case 0:
+            std::cout << "you choose to scramble the vector" << std::endl;
+            generateRandomIntVector(vectorToGenerate, vectorToGenerate.size(), 30);
+            std::cout << "New Vector: ";
+            printVector(vectorToGenerate);
+            break;
         case 1:
             std::cout << "You chose Insertion Sort"<< std::endl;
             break;
