@@ -27,23 +27,22 @@ namespace quickS{
 */
 int partitionVector(std::vector<int> &vectorToSort, int leftIndexWall, int rightIndexWall){
     int pivot = vectorToSort[rightIndexWall];
-    int i = leftIndexWall-1;
-    int hold;
+    int i = leftIndexWall;
     for(int j = leftIndexWall; j < rightIndexWall; j++){
         if(vectorToSort[j] <= pivot){
-            i=i+1;
             swapVectorElements(vectorToSort, i, j);
+            i=i+1;
         }
     }
-    swapVectorElements(vectorToSort, i+1, rightIndexWall);
-    return i+1;
+    swapVectorElements(vectorToSort, i, rightIndexWall);
+    return i;
 }
 
 void quickSort(std::vector<int> &vectorToSort, int leftIndex, int rightIndex){
     if(leftIndex < rightIndex){
         int middleIndex = partitionVector(vectorToSort, leftIndex, rightIndex);
         quickSort(vectorToSort, leftIndex, middleIndex-1);
-        quickSort(vectorToSort, middleIndex, rightIndex);
+        quickSort(vectorToSort, middleIndex+1, rightIndex);
     }
     return;
 }
