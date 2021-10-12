@@ -25,6 +25,7 @@ int main(){
     srand(time(NULL));
     std::vector<int> vectorToGenerate;
     generateRandomIntVector(vectorToGenerate, 10, 30);
+    bool exit = false;
 
     int choiceSelector = 0;
     while(choiceSelector != -1){
@@ -76,6 +77,7 @@ int main(){
         break;
         case -1:
             std::cout << "googbye" << std::endl;
+            exit = true;
             break;
         default:
             std::cout << "Not a valid choice"<<std::endl;
@@ -84,6 +86,10 @@ int main(){
                 std::cin.ignore();
             }
             break;
+        }
+        if(checkIfVectorSorted(vectorToGenerate) && !exit){
+            std::cout << "\033[4;32m" << "can confirm that the vector is sorted" << "\033[0m"<<std::endl;
+            std::cout << "\033[4;37m" << "  source: trust me bro" << "\033[0m" << std::endl;
         }
     }
 }

@@ -17,3 +17,16 @@ void printVector(std::vector<T> toPrint){
     }
     std::cout << std::endl;
 }
+
+bool checkIfVectorSorted(std::vector<int> vectorToCheck){
+    if(vectorToCheck.size() == 0 || vectorToCheck.size() == 1){
+        return true;
+    }
+
+    for(int i = 1; i < vectorToCheck.size(); i++){
+        if(vectorToCheck[i] < vectorToCheck[i-1]){
+            return false;
+        }
+    }
+    return true;
+}
