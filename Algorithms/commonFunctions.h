@@ -19,6 +19,16 @@ void printVector(std::vector<T> toPrint){
     std::cout << std::endl;
 }
 
+// prints vector elements between two indexes
+template <typename T>
+void printArrayWithRange(T vectorToPrint, int vecStart, int vecEnd){
+    std::cout << "\n-------------------------------------------------------\n";
+    std::cout << "\nprinting array from ["<<vecStart<<"] to ["<<vecEnd<<"]: \n";
+    for(int i = vecStart; i <= vecEnd; i++){
+        std::cout << vectorToPrint[i] << "\n" ;
+    }
+}
+
 bool checkIfVectorSorted(std::vector<int> vectorToCheck){
     if(vectorToCheck.size() == 0 || vectorToCheck.size() == 1){
         return true;
