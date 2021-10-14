@@ -36,7 +36,7 @@ int main(){
         std::cout << "[2] Merge Sort" << std::endl;
         std::cout << "[3] Bubble Sort" << std::endl;
         std::cout << "[4] Selection Sort" << std::endl;
-        std::cout << "[5] Peak Finder Algorithm \033[2;33m[TOO LAZY TO IMPLEMENT HERE :)]\033[0m" << std::endl;
+        std::cout << "[5] Peak Finder Algorithm \033[2;32m[IN THE END I IMPLEMENTED IT :)]\033[0m" << std::endl;
         std::cout << "[6] Heap Sort  \033[1;31m[DOESN'T WORK]\033[0m" << std::endl;
         std::cout << "[7] Quick Sort" << std::endl;
         std::cout << "[-1] To exit this menu" << std::endl;
@@ -67,6 +67,7 @@ int main(){
             break;
         case 5:
             std::cout << "You chose Peak Finder Algortitmh"<< std::endl;
+            peakFinder::findPeakInVector(vectorToGenerate);
             break;
         case 6:
             std::cout << "You chose Heap Sort"<< std::endl;
