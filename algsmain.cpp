@@ -2,7 +2,8 @@
 #include <string>
 #include <vector>
 #include <math.h>
-#include "Algorithms/quickSort.h"
+
+#include "Algorithms/algslib.h"
 #include "Algorithms/commonFunctions.h"
 
 
@@ -36,10 +37,11 @@ int main(){
         std::cout << "[3] Bubble Sort" << std::endl;
         std::cout << "[4] Selection Sort" << std::endl;
         std::cout << "[5] Peak Finder Algorithm" << std::endl;
-        std::cout << "[6] Heap Sort" << std::endl;
+        std::cout << "[6] Heap Sort  \033[1;31m[DOESN'T WORK]\033[0m" << std::endl;
         std::cout << "[7] Quick Sort" << std::endl;
         std::cout << "[-1] To exit this menu" << std::endl;
         std::cin >> choiceSelector;
+        printVector(vectorToGenerate);
         switch (choiceSelector)
         {
         case 0:
@@ -50,6 +52,8 @@ int main(){
             break;
         case 1:
             std::cout << "You chose Insertion Sort"<< std::endl;
+            insSort::insSort(vectorToGenerate);
+            printVector(vectorToGenerate);
             break;
         case 2:
             std::cout << "You chose Merge Sort"<< std::endl;
@@ -65,9 +69,10 @@ int main(){
             break;
         case 6:
             std::cout << "You chose Heap Sort"<< std::endl;
+            heapSort::heapSort(vectorToGenerate);
+            printVector(vectorToGenerate);
             break;
         case 7:
-            printVector(vectorToGenerate);
             std::cout << "You chose Quick Sort"<< std::endl;
             quickS::quickSort(vectorToGenerate);
             printVector(vectorToGenerate);
@@ -88,8 +93,10 @@ int main(){
             break;
         }
         if(checkIfVectorSorted(vectorToGenerate) && !exit){
-            std::cout << "\033[4;32m" << "can confirm that the vector is sorted" << "\033[0m"<<std::endl;
-            std::cout << "\033[4;37m" << "  source: trust me bro" << "\033[0m" << std::endl;
+            std::cout << "\033[4;32m" << "Can confirm that the vector is sorted" << "\033[0m"<<std::endl;
+            std::cout << "\033[4;37m" << "\tsource: trust me bro" << "\033[0m" << std::endl;
+        }else if(!checkIfVectorSorted(vectorToGenerate) && !exit){
+            std::cout << "\033[4;31m" << "The vector is NOT sorted" << "\033[0m"<<std::endl;
         }
     }
 }
