@@ -63,4 +63,24 @@ void quickSort(std::vector<int> &vectorToSort, int leftIndex, int rightIndex){
 void quickSort(std::vector<int> &vectorToSort){
     quickSort(vectorToSort, 0, vectorToSort.size()-1);
 }
+
+int partitionVectorRand(std::vector<int> &vectorToSort, int leftIndex, int rightIndex){
+    std::cout <<std::endl << leftIndex << "----"<<rightIndex<<std::endl;
+    int i = rand() % rightIndex + leftIndex;
+    std::cout << i << std::endl;
+    swapVectorElements(vectorToSort, i, rightIndex);
+    return partitionVector(vectorToSort, leftIndex, rightIndex);
+}
+
+void quickSortRand(std::vector<int> &vectorToSort, int leftIndex, int rightIndex){
+    if(leftIndex < rightIndex){
+        int middleIndex = partitionVectorRand(vectorToSort, leftIndex, rightIndex);
+        quickSortRand(vectorToSort, leftIndex, middleIndex-1);
+        quickSortRand(vectorToSort, middleIndex+1, rightIndex);
+    }
+}
+
+void quickSortRand(std::vector<int> &vectorToSort){
+    quickSortRand(vectorToSort, 0, vectorToSort.size()-1);
+}
 }
