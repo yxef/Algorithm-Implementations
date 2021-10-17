@@ -41,3 +41,36 @@ bool checkIfVectorSorted(std::vector<int> vectorToCheck){
     }
     return true;
 }
+
+bool isInListOfIndexesToIgnore(std::vector<int> listOfIndexesToIgnore, int indexToCheck){
+    for(int i = 0; i < listOfIndexesToIgnore.size(); i++){
+        if(listOfIndexesToIgnore[i] == indexToCheck)
+            return true;
+    }
+
+    return false;
+}
+
+// debug function, checks if the algorithm deleted a value that was present in the original vector
+// works using isInListOfIndexesToIgnore, which ignores indexes, so that we do not check the same
+// position twice in case there are two elements of the same value
+void whichNumberWasKilled(std::vector<int> startingVector, std::vector<int> differentVector){
+    bool isTheNumberInTheDifferentVector = false;       //i know, very explicit name, fuck you
+    std::vector<int> listOfIndexesToIgnore;
+
+    for(int i = 0; i < startingVector.size(); i++){
+        for(int j = 0; j < differentVector.size(); j++){
+            if(startingVector[i] == differentVector[j] && !isInListOfIndexesToIgnore(listOfIndexesToIgnore, j)){
+                isTheNumberInTheDifferentVector = true;
+                listOfIndexesToIgnore.push_back(j);
+                break;
+            }
+        }
+        if(isTheNumberInTheDifferentVector)
+            std::cout << "["<<startingVector[i]<<"] is present in the differentVector" << std::endl;
+        else{
+            std::cout << "["<<startingVector[i]<<"] was eaten by the algorithm" << std::endl;
+        }
+        isTheNumberInTheDifferentVector = false;
+    }
+}

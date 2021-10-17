@@ -7,6 +7,8 @@
 #include "Algorithms/commonFunctions.h"
 
 
+#define MAX_RANGE_VALUES 30
+
 void generateRandomIntVector(std::vector<int> &toRandomize, int desiredSize, int maxValueRange){
     if(toRandomize.size() == 0){
         for(int i = 0; i < desiredSize; i++){
@@ -25,7 +27,7 @@ void generateRandomIntVector(std::vector<int> &toRandomize, int desiredSize, int
 int main(){
     srand(time(NULL));
     std::vector<int> vectorToGenerate;
-    generateRandomIntVector(vectorToGenerate, 1000000, 30);
+    generateRandomIntVector(vectorToGenerate, 10, MAX_RANGE_VALUES);
     bool exit = false;
 
     int choiceSelector = 0;
@@ -39,9 +41,10 @@ int main(){
         std::cout << "[5] Peak Finder Algorithm \033[2;32m[IN THE END I IMPLEMENTED IT :)]\033[0m" << std::endl;
         std::cout << "[6] Heap Sort  \033[1;31m[DOESN'T WORK]\033[0m" << std::endl;
         std::cout << "[7] Quick Sort" << std::endl;
+        std::cout << "[8] Counting Sort" << std::endl;
         std::cout << "[-1] To exit this menu" << std::endl;
         std::cin >> choiceSelector;
-        //printVector(vectorToGenerate);
+        printVector(vectorToGenerate);
         switch (choiceSelector)
         {
         case 0:
@@ -77,6 +80,10 @@ int main(){
             std::cout << "You chose Quick Sort"<< std::endl;
             quickS::quickSortRand(vectorToGenerate);
             break;
+        case 8:
+            std::cout << "you chose Counting Sort" << std::endl;
+            vectorToGenerate = countingSort::countingSort(vectorToGenerate, MAX_RANGE_VALUES);
+            break;
         case 69:
             std::cout << "Nice"<< std::endl;
         break;
@@ -93,11 +100,11 @@ int main(){
             break;
         }
         if(checkIfVectorSorted(vectorToGenerate) && !exit){
-            //printVector(vectorToGenerate);
+            printVector(vectorToGenerate);
             std::cout << "\033[4;32m" << "Can confirm that the vector is sorted" << "\033[0m"<<std::endl;
             std::cout << "\033[4;37m" << "\tsource: trust me bro" << "\033[0m" << std::endl;
         }else if(!checkIfVectorSorted(vectorToGenerate) && !exit){
-            //printVector(vectorToGenerate);
+            printVector(vectorToGenerate);
             std::cout << "\033[4;31m" << "The vector is NOT sorted" << "\033[0m"<<std::endl;
         }
     }
