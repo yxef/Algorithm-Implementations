@@ -7,3 +7,4 @@
 #include "bubbleSort.h"
 #include "selSort.h"
 #include "peakFinder.h"
+#include "countingSort.h"

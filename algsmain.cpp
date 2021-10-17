@@ -25,7 +25,7 @@ void generateRandomIntVector(std::vector<int> &toRandomize, int desiredSize, int
 int main(){
     srand(time(NULL));
     std::vector<int> vectorToGenerate;
-    generateRandomIntVector(vectorToGenerate, 10, 30);
+    generateRandomIntVector(vectorToGenerate, 1000000, 30);
     bool exit = false;
 
     int choiceSelector = 0;
@@ -41,7 +41,7 @@ int main(){
         std::cout << "[7] Quick Sort" << std::endl;
         std::cout << "[-1] To exit this menu" << std::endl;
         std::cin >> choiceSelector;
-        printVector(vectorToGenerate);
+        //printVector(vectorToGenerate);
         switch (choiceSelector)
         {
         case 0:
@@ -93,11 +93,11 @@ int main(){
             break;
         }
         if(checkIfVectorSorted(vectorToGenerate) && !exit){
-            printVector(vectorToGenerate);
+            //printVector(vectorToGenerate);
             std::cout << "\033[4;32m" << "Can confirm that the vector is sorted" << "\033[0m"<<std::endl;
             std::cout << "\033[4;37m" << "\tsource: trust me bro" << "\033[0m" << std::endl;
         }else if(!checkIfVectorSorted(vectorToGenerate) && !exit){
-            printVector(vectorToGenerate);
+            //printVector(vectorToGenerate);
             std::cout << "\033[4;31m" << "The vector is NOT sorted" << "\033[0m"<<std::endl;
         }
     }
