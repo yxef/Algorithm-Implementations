@@ -1,0 +1,6 @@
+
+# REMOVING COMPILEABLE EXECUTEABLES
+*.exe
+
+# VS CODE FILES
+.vscode/*
