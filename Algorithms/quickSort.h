@@ -66,12 +66,13 @@ void quickSort(std::vector<int> &vectorToSort){
 }
 
 int partitionVectorRand(std::vector<int> &vectorToSort, int leftIndex, int rightIndex){
-    std::cout <<std::endl << leftIndex << "----"<<rightIndex<<std::endl;
+    // rng inizialization, uniform and unbiased
     std::random_device rd;
     std::mt19937 rng(rd());
     std::uniform_int_distribution<int> uni(leftIndex, rightIndex);
+
     int i = uni(rng); 
-    std::cout << i << std::endl;
+
     swapVectorElements(vectorToSort, i, rightIndex);
     return partitionVector(vectorToSort, leftIndex, rightIndex);
 }

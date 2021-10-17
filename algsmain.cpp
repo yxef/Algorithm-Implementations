@@ -75,7 +75,7 @@ int main(){
             break;
         case 7:
             std::cout << "You chose Quick Sort"<< std::endl;
-            quickS::quickSort(vectorToGenerate);
+            quickS::quickSortRand(vectorToGenerate);
             break;
         case 69:
             std::cout << "Nice"<< std::endl;
