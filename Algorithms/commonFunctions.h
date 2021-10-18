@@ -69,7 +69,7 @@ void whichNumberWasKilled(std::vector<int> startingVector, std::vector<int> diff
         if(isTheNumberInTheDifferentVector)
             std::cout << "["<<startingVector[i]<<"] is present in the differentVector" << std::endl;
         else{
-            std::cout << "["<<startingVector[i]<<"] was eaten by the algorithm" << std::endl;
+            std::cout << "\033[31m ["<<startingVector[i]<<"] was eaten by the algorithm\033[0m" << std::endl;
         }
         isTheNumberInTheDifferentVector = false;
     }

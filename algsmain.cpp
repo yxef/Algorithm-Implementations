@@ -10,6 +10,7 @@
 #define MAX_RANGE_VALUES 30
 
 void generateRandomIntVector(std::vector<int> &toRandomize, int desiredSize, int maxValueRange){
+    maxValueRange++;
     if(toRandomize.size() == 0){
         for(int i = 0; i < desiredSize; i++){
             toRandomize.push_back(rand() % maxValueRange);

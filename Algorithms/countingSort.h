@@ -19,7 +19,7 @@ Then, it counts :)
 namespace countingSort{
 
 std::vector<int> countingSort(std::vector<int> vectorToSort, int maxRangeValue){
-    std::vector<int> countingVector(maxRangeValue);
+    std::vector<int> countingVector(maxRangeValue+1);
     std::vector<int> finalVector(vectorToSort.size());
 
     std::cout << "---vectorToSort size: "<< vectorToSort.size() << std::endl;
@@ -32,12 +32,12 @@ std::vector<int> countingSort(std::vector<int> vectorToSort, int maxRangeValue){
     }
 
     std::cout << "\033[31m";
-    for(int j= 0; j <= vectorToSort.size()-1; j++){
+    for(int j= 0; j < vectorToSort.size(); j++){
         std::cout << "j = " << j << ". adding 1 countingVector[vectorToSort[j]] = "<<countingVector[vectorToSort[j]] << " vectorToSort[j] = " << vectorToSort[j]<< std::endl;
         countingVector[vectorToSort[j]] = countingVector[vectorToSort[j]] + 1;
     }
     std::cout << "\033[32m";
-    for(int k = 0; k <= maxRangeValue-1; k++){
+    for(int k = 1; k <= maxRangeValue; k++){
         std::cout << "k = " << k << " about to add countingVector[k](" <<countingVector[k]<< ") + countingVector[k-1](" << countingVector[k-1] << ")" << std::endl;
         countingVector[k] = countingVector[k] + countingVector[k-1];
     }
